@@ -51,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       child: Scaffold(
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             CreditCardWidget(
               cardNumber: cardNumber,
@@ -66,13 +67,28 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Divider(),
-            Expanded(
-                child: FlatButton(
-              child: Text("Add this card"),
-              color: Colors.blue,
-              onPressed: () => {},
-            ))
+            RaisedButton(
+                child: Text("Add this card"),
+                color: Colors.blue,
+                onPressed: () {
+                  print("getting called");
+                }
+                // () async {
+                //   print("start");
+                //   _paymentMethod = await StripePayment.createPaymentMethod(
+                //     PaymentMethodRequest(
+                //       card: CreditCard(
+                //         name: cardHolderName,
+                //         number: cardNumber,
+                //         cvc: cvvCode,
+                //         expMonth: int.parse(expiryDate.split("/")[0]),
+                //         expYear: int.parse(expiryDate.split("/")[1]),
+                //       ),
+                //     ),
+                //   );
+                //   print("Success");
+                // },
+                )
           ],
         ),
       ),
